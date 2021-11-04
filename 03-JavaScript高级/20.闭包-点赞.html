@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>使用闭包</p>
+  <button>点赞(1)</button>
+  <button>点赞(1)</button>
+  <button>点赞(1)</button>
+  <button>点赞(1)</button>
+
+  <script>
+
+
+   
+    // 闭包缓存数据
+    function getValue() {
+      var value = 2;
+      return function () {
+        this.innerText = "点赞(" + (value++) +")";
+        console.log(this);
+      }
+    }
+
+    var btnObjs = document.getElementsByTagName('button');
+    for(var i=0; i<btnObjs.length;i++){
+      btnObjs[i].onclick = getValue();
+    }
+
+
+  </script>
+</body>
+</html>

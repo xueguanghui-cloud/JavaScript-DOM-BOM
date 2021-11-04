@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dv {
+            width: 300px;
+            height: 200px;
+            border: 2px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="button" id="btn" value="创建一个p">
+    <div id="dv">
+        <span>我是span</span>
+    </div>
+
+    <script src="./common.js"></script>
+    <script>
+        // 为id为dv的元素创建一个p元素：对象.innerHTML = ("标签代码及内容");
+        // 对象.innerHTML = ("标签代码及内容");如果使用此方法创建元素，则创建元素的对象中的其它内容将会被干掉；
+        my$("btn").onclick = function() {
+            my$("dv").innerHTML = ("<p>床前明月光，疑是地上霜。举头望明月，低头思故乡。</p>");
+        }
+    </script>
+
+</body>
+
+</html>

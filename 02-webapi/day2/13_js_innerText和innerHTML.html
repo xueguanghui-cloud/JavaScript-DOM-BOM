@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		#dv{
+			width: 300px;
+			height: 200px;
+			border: 1px dashed red;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="dv">
+		
+	</div>
+	<input type="button" value="innerText" id="btn1"> 
+	<input type="button" value="innerHTML" id="btn2"> 
+
+	<script type="text/javascript" src="./common.js"></script>
+	<script type="text/javascript">
+		my$("btn1").onclick = function() {
+			my$("dv").innerText = "<p>这是一个p标签</p>";
+		};
+		my$("btn2").onclick = function() {
+			my$("dv").innerHTML = "<p>这是一个p标签</p>";
+		};
+
+
+		/* 总结：
+
+			设置：
+			innerText主要是用来设置标签文本内容的；
+			innerHTML是可以设置文本内容的，主要作用是设置新的标签内容；
+
+			获取：
+			innerText可以获取标签中间的文本内容，但是如果标签中如果还有标签，那么最里面的标签的文本内容也可以获取到--获取不到标签，文本可以获取；
+			innerHTML才是真正的后哦去标签中间所有内容；
+
+
+		*/
+
+	</script>
+
+</body>
+</html>

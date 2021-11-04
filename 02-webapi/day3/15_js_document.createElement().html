@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="button" value="创建一个p" id="btn">
+    <div id="dv"></div>
+
+    <script src="./common.js"></script>
+    <script>
+        // 第三种方式创建元素
+        // document.createElement();
+        // 把元素追加到父级元素中
+
+        my$("btn").onclick = function() {
+            var pObj = document.createElement("p");
+            setInnerText(pObj, "这是一个p");
+            my$("dv").appendChild(pObj);
+        }
+    </script>
+
+</body>
+
+</html>

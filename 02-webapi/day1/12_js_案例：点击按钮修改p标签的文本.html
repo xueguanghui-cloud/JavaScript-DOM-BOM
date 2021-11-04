@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+
+<input type="button" value="修改" id="btn">
+
+<p id="txt">我好帅啊！！！</p>
+
+
+
+<script type="text/javascript">
+	
+	function my$(id) {
+		return document.getElementById(id);
+	}
+
+
+	my$("btn").onclick = function(){
+		my$("txt").innerText = "你个臭傻逼！！！";
+	}
+ 
+</script>
+
+</body>
+</html>

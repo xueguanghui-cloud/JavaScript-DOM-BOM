@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<div id="dv">
+		
+		<span>这是div中的第一个span标签</span>
+		<p>这是div中的第二个元素，第一个p标签</p>
+		<ul id="uu">哈哈
+			<li>乔峰</li>
+			<li>鹿茸</li>
+			<li>段誉</li>嘿嘿
+			<li id="four">卡卡西</li>啊啊
+			<li>雏田</li>
+			<li>赵括</li>嘎嘎
+		</ul>
+
+	</div>
+
+	<script type="text/javascript" src="./common.js"></script>
+
+	<script type="text/javascript">
+		
+		// 12行代码：都是获取节点和元素
+		var ulObj = my$("uu");
+		// 父级节点
+		console.log(ulObj.parentNode);
+		// 父级元素
+		console.log(ulObj.parentElement);
+		// 子节点
+		console.log(ulObj.childNodes);
+		// 子元素
+		console.log(ulObj.children);
+		// 以上方法谷歌,火狐,ie都支持
+		console.log("--------------------------------------------");
+
+		// 第一个子节点
+		console.log(ulObj.firstChild);// ------------IE8获取的是第一个子元素
+		// 第一个ziyuans
+		console.log(ulObj.firstElementChild);// -------IE8不支持
+		// 最后一个子节点
+		console.log(ulObj.lastChild);// ------------IE8获取的是最后一个子元素
+		// 最后一个子元素
+		console.log(ulObj.lastElementChild);// -------IE8不支持
+		// 某一个元素的前一个兄弟节点
+		console.log(my$("four").previousSibling);// ------------IE8获取的是某一个元素的前一个兄弟元素
+		// 某一个元素的前一个兄弟元素
+		console.log(my$("four").previousElementSibling);// -------IE8不支持
+		// 某一个元素的后一个兄弟节点
+		console.log(my$("four").nextSibling);// ------------IE8获取的是某一个元素的后一个兄弟元素
+		// 某一个元素的后一个兄弟元素
+		console.log(my$("four").nextElementSibling);// -------IE8不支持
+
+
+
+	</script>
+
+</body>
+</html>

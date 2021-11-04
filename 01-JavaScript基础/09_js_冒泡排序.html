@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> </title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		// 冒泡排序：
+		var arr = [10,30,1,4,50,100,230];
+
+		// 循环控制比较的轮数：
+		for(var i = 0; i < arr.length-1; i++){
+			// 循环控制比较的次数
+			for(var j = 0; j < arr.length-1-i; j++){
+				if(arr[j] > arr[j+1]){
+					var temp = arr[j];
+					arr[j]  = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+		}
+		console.log(arr);
+		学到函数练习6
+
+
+	</script>
+</body>
+</html>

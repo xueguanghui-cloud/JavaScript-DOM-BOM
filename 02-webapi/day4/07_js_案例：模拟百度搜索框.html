@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 450px;
+            margin: 200px auto;
+        }
+        
+        #txt {
+            width: 350px;
+        }
+        
+        #pop {
+            width: 350px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">
+        <input type="text" id="txt" value="">
+        <input type="button" value="搜索" id="btn">
+    </div>
+    <script src="./common.js"></script>
+    <script>
+        var keyWords = ["iPhone", "iPhone12召回", "iPhone13预计上市事件", "华为手机", "华为手机价格大全", "小米手机", "小米手机价格大全"];;
+        // 为文本框绑定键盘抬起事件
+        my$("txt").onkeyup = function() {
+
+            // 坑
+            if (my$("dv")) {
+                // 删除一个
+                my$("box").removeChild(my$("dv"));
+            }
+
+            // 获取输入的内容
+            var text = this.value;
+            var tempArr = []; // 存放零时数据
+            // 把输入的内容与数组中的每个数据进行对比
+            for (var i = 0; i < keyWords.length; i++) {
+                if (keyWords[i].indexOf(text) == 0) {
+                    tempArr.push(keyWords[i]); //将匹配成功的数组追加到新数组中
+                }
+            }
+
+            if (this.value.length == 0 || tempArr.length == 0) {
+                // 如果页面中有这个div，删除这个div
+                if (my$("dv")) {
+                    my$("box").removeChild(my$("dv"));
+                }
+                return;
+            }
+            // 如果文本框是空的，临时数组是空的，此时不用创建div
+            var dvObj = document.createElement("div");
+            dvObj.id = "dv";
+            dvObj.style.width = "350px";
+            dvObj.style.border = "1px solid green";
+            my$("box").appendChild(dvObj);
+
+            //变量临时数组，创建对应的p标签
+            for (var i = 0; i < tempArr.length; i++) {
+                // 创建p标签
+                var pObj = document.createElement("p");
+                // 把p追加到div中
+                dvObj.appendChild(pObj);
+                pObj.innerHTML = tempArr[i];
+                pObj.style.margin = 0;
+                pObj.style.padding = 0;
+                pObj.style.cursor = "pointer";
+                pObj.style.marginTop = "5px";
+                pObj.style.marginLeft = "5px";
+
+                // 鼠标进入
+                pObj.onmouseover = function() {
+                    this.style.backgroundColor = "red";
+                    this.style.color = "#fff";
+                };
+                // 鼠标离开
+                pObj.onmouseout = function() {
+                    this.style.backgroundColor = "";
+                    this.style.color = "";
+                };
+            }
+
+
+
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

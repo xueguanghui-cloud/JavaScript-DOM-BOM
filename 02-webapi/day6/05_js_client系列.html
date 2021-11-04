@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dv {
+            width: 200px;
+            height: 200px;
+            border: 20px solid #008c8c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="dv">
+
+    </div>
+    <script>
+        console.log(document.getElementById("dv").clientWidth);
+        console.log(document.getElementById("dv").clientHeight);
+
+
+        console.log(document.getElementById("dv").clientLeft);
+        console.log(document.getElementById("dv").clientTop);
+
+
+
+
+        client: 可视区域
+        clientWidth: 可视区域的宽， 没有边框
+        clientHeight: 可视区域的高， 没有边框
+        clientLeft: 可视区域左边框的宽
+        clientTop: 可视区域上边框的宽
+    </script>
+</body>
+
+</html>

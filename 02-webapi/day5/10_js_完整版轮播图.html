@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            vertical-align: top;
+        }
+        
+        .box {
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        .inner {
+            width: 520px;
+            height: 280px;
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .inner ul {
+            width: 1000%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .inner ul li {
+            float: left;
+        }
+        
+        ol {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -60px;
+        }
+        
+        ol li {
+            width: 10px;
+            height: 10px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            margin: 0 5px;
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        ol li.current {
+            background-color: #ff5000;
+            color: #fff;
+        }
+        
+        #focus {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+            display: none;
+        }
+        
+        #focus span {
+            cursor: pointer;
+            width: 20px;
+            height: 40px;
+            display: inline-block;
+            text-align: center;
+            color: #fff;
+            line-height: 40px;
+            background-color: rgba(0, 0, 0, .3);
+        }
+        
+        #focus span#left {
+            position: absolute;
+            left: 0;
+        }
+        
+        #focus span#right {
+            position: absolute;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box" id="box">
+        <!-- 相框 -->
+        <div class="inner">
+            <ul>
+                <li>
+                    <a href="#"><img src="img/1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/3.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/4.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/5.jpg" alt=""></a>
+                </li>
+            </ul>
+            <ol>
+            </ol>
+            <div id="focus">
+                <span id="left">&lt;</span>
+                <span id="right">&gt;</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 获取最外面的div
+        var box = document.getElementById("box");
+        // 获取相框
+        var inner = box.children[0];
+        // 获取ul
+        var ulObj = inner.children[0];
+        // 获取ol
+        var olObj = inner.children[1];
+        // 获取焦点div
+        var focus = inner.children[2];
+        // 获取ul下的li
+        var list = ulObj.children;
+        // 获取相框的宽度
+        var imgWidth = inner.offsetWidth;
+
+        var pic = 0; //全局变量
+        // 创建小按钮---根据ul中li的个数
+        for (var i = 0; i < list.length; i++) {
+            var liObj = document.createElement("li");
+            // 在每个ol中的li标签上添加一个自定义属性，存储索引值
+            liObj.setAttribute("index", i);
+            olObj.appendChild(liObj);
+            // 鼠标进入事件
+            liObj.onmouseover = function() {
+                // 清除ol中所有li的类样式
+                for (var j = 0; j < olObj.children.length; j++) {
+                    olObj.children[j].removeAttribute("class");
+                }
+                // 为当前元素添加类样式，使其成为选中状态
+                this.className = "current";
+                // 获取鼠标进入的i的当前索引值
+                pic = this.getAttribute("index");
+                // 移动ul
+                animate(ulObj, -pic * imgWidth);
+            };
+        }
+
+        // 设置ol中第一个为默认值
+        olObj.children[0].className = "current";
+
+        // 克隆一个ul中的第一个li，加入到ul中的最后
+        ulObj.appendChild(ulObj.children[0].cloneNode(true));
+
+        // 自动播放
+        var timeId = setInterval(clickHandleRight, 2000);
+
+
+        // 鼠标进入到box的div显示焦点元素
+        box.onmouseover = function() {
+            focus.style.display = "block";
+            // 鼠标进入停止播放
+            clearInterval(timeId);
+        };
+        // 鼠标离开到box的div隐藏焦点元素
+        box.onmouseout = function() {
+            focus.style.display = "none";
+            // 鼠标离开继续播放
+            timeId = setInterval(clickHandleRight, 2000);
+        };
+
+        // 右边焦点按钮
+        document.getElementById("right").onclick = clickHandleRight;
+
+        function clickHandleRight() {
+
+            if (pic == list.length - 1) {
+                pic = 0;
+                ulObj.style.left = 0 + "px";
+            }
+            pic++;
+            // 移动ul
+            animate(ulObj, -pic * imgWidth);
+            // 如果pic=5说明吗，此时显示的第 6张图（内容是第一张图），第一个小按钮为选中
+            if (pic == list.length - 1) {
+                // 第五个按钮去掉类样式
+                olObj.children[olObj.children.length - 1].removeAttribute("class");
+                // 第一个按钮设置类样式
+                olObj.children[0].className = "current";
+            } else {
+                for (var i = 0; i < olObj.children.length; i++) {
+                    olObj.children[i].removeAttribute("class");
+                }
+                olObj.children[pic].className = "current";
+            }
+        };
+        // 左边焦点按钮
+        document.getElementById("left").onclick = clickHandleLeft;
+
+        function clickHandleLeft() {
+
+            if (pic == 0) {
+                pic = 5;
+                ulObj.style.left = -pic * imgWidth + "px";
+            }
+            pic--;
+            animate(ulObj, -pic * imgWidth);
+            // 设置小按钮的颜色
+            for (var i = 0; i < olObj.children.length; i++) {
+                olObj.children[i].removeAttribute("class");
+            }
+            olObj.children[pic].className = "current";
+        };
+
+        // 设置任意一个元素，移动到指定的位置
+        function animate(element, target) {
+            // 清除定时器
+            clearInterval(element.timeId);
+            element.timeId = setInterval(function() {
+                // 获取div当前位置
+                var current = element.offsetLeft;
+                // 移动的步数
+                var step = 10;
+                step = current > target ? -step : step;
+                // 移动后的位置
+                current = current + step;
+                // 判断div是否到达目标位置
+                if (Math.abs(target - current) >= Math.abs(step)) {
+                    // 设置div的位置
+                    element.style.left = current + "px";
+                } else {
+                    // 清除定时器
+                    clearInterval(element.timeId);
+                    element.style.left = target + "px";
+                };
+            }, 10);
+        };
+    </script>
+
+</body>
+
+</html>

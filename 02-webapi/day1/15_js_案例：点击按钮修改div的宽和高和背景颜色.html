@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<div id="dv" style="width:200px;height: 200px;background-color: red;"></div>
+	<input type="button" value="修改" id="btn">
+
+	<script src="./common.js"></script>
+	<script type="text/javascript">
+		// 凡是css中这个属性的多个单词的写法，在js代码中的DOM操作的时候，把-干掉，后面的单词首字母大写即可；
+		my$("btn").onclick = function() {
+			my$("dv").style.width = "300px";
+			my$("dv").style.height = "300px";
+			my$("dv").style.backgroundColor = "green";
+		}
+	</script>
+
+</body>
+</html>

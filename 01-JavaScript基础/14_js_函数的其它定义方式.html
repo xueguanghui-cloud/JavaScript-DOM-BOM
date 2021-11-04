@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		/*	匿名函数：函数如果没有名字，就匿名函数；
+			命名函数：函数如果有名字，就是命名函数；
+
+
+			函数的另一种定义方式：
+				1.函数声明：
+					语法：function 函数名(){函数体};
+				
+				2.函数表达式：把一个函数给一个变量通常叫做函数表达式；
+					注意：函数表达式后面要加封号；
+					语法：var 变量名 = function(){函数体};
+ 
+ 				3.函数的自调用：
+ 					注意：函数自调用，没有名字，声明的同时直接调用，一次性的；
+ 					例子：(function(){函数体};)();
+
+ 				4.回调函数：函数作为参数使用叫做回调函数：
+					例子：								
+						function f1(fn){
+							fn(); 
+						}
+						function f2(){
+							console.log("哈哈。这都可以？？");
+						}
+						f1(f2);
+
+
+			函数也是一种数据类型：function
+				function fun1(){};
+				console.log(typeOf fun1);
+
+
+			函数作为返回值使用：
+				例子：
+				function f1(){
+					console.log("f1函数调用了");
+					return function f2(){console.log("这是一个函数");}
+				}
+				var ff = f1();
+				ff();
+
+
+		*/
+
+
+
+
+	</script>
+
+</body>
+</html>

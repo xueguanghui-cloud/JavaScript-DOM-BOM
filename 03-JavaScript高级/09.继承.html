@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 面对对象编程思想：根据需求，分析对象，找到对象有什么特征和行为，通过代码的方式来实现需求，要想实现这个需求，就要创建对象，就应该显示有构造函数，然后通过构造函数来创建对象，通过对象调用属性和方法来实现相应的功能及需求即可。
+    // 面向对象的特征：封装、继承、多态
+
+    // 封装：就是包装；依托代码放在一个函数中---封装
+
+    // 继承：首先继承是一种关系，类（class）与类之间的关系，继承是为了实现数据共享
+
+
+    // 多态：一个对象有不同的行为，或者是同一个行为针对不同的对象，产生了不同的作用；多态是基于继承的。
+
+    // 原型作用之一：数据共享，节省内存空间
+    // 原型作用之二：为了实现继承
+
+
+    // 举例：
+    // 人：姓名，性别，年龄，吃饭，睡觉，玩
+    // 学生：姓名，性别，年龄，吃饭，睡觉，玩，成绩，学习的行为
+
+    function Person(name,sex,age) {
+      this.name = name;
+      this.sex = sex;
+      this.age = age;
+    }
+
+    Person.prototype.eat = function(){
+      console.log("吃东西");
+    }
+
+    Person.prototype.sleep = function () {
+      console.log('睡觉');
+    }
+
+    Person.prototype.play = function () {
+      console.log("生活就是不一样的玩法！！");
+    }
+
+
+    function Student(score) {
+      this.score = score;
+    }
+
+  //  改变学生的原型的指向即可
+  Student.prototype=new Person("小明","男",32);
+
+  Student.prototype.study = function () {
+    console.log("学习好累");
+  }
+
+  var stu  = new Student(100);
+  console.log(stu.name);
+  console.log(stu.sex);
+  console.log(stu.age);
+  stu.eat();
+  stu.play();
+  stu.sleep();
+  stu.study();
+  console.log(stu.score);
+  </script>
+</body>
+</html>

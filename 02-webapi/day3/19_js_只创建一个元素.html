@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="button" value="创建" id="btn">
+
+    <div id="dv"></div>
+
+    <script src="./common.js"></script>
+    <script>
+        my$("btn").onclick = function() {
+
+            // 有则删除，无则创建
+            // if (my$("btn2")) {
+            //     my$("dv").removeChild(my$("btn2"));
+            // }
+            // var obj = document.createElement("input");
+            // obj.type = "button";
+            // obj.value = "按钮";
+            // obj.id = "btn2";
+            // my$("dv").appendChild(obj);
+
+            if (!my$("btn2")) {
+                var obj = document.createElement("input");
+                obj.type = "button";
+                obj.value = "按钮";
+                obj.id = "btn2";
+                my$("dv").appendChild(obj);
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

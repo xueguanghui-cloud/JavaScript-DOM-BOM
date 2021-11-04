@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<div id="dv">
+		
+		<span>这是div中的第一个span标签</span>
+		<p>这是div中的第二个元素，第一个p标签</p>
+		<ul id="uu">
+			<li>乔峰</li>
+			<li>鹿茸</li>
+			<li>段誉</li>
+			<li class="four">卡卡西</li>
+			<li>雏田</li>
+			<li>赵括</li>
+		</ul>
+
+	</div>
+
+	<script type="text/javascript" src="./common.js"></script>
+
+	<script type="text/javascript">
+		
+		// var dv = my$("dv");
+
+		// for(var i = 0; i < dv.childNodes.length; i++){
+		// 	var node = dv.childNodes[i];
+		// 	console.log(node.nodeType+"=="+node.nodeName+"=="+node.nodeValue);
+		// }
+
+
+		var dv = my$("dv");
+		// 获取的是属性节点
+		var node = dv.getAttributeNode("id");
+		console.log(node.nodeType+"==="+node.nodeName+"==="+node.nodeValue)
+
+
+
+		// var dv = my$("dv");
+		// // 子节点
+		// console.log(dv.childNodes);//7个子节点
+		// // 子元素
+		// console.log(dv.children);//3个子元素
+
+
+	</script>
+
+</body>
+</html>

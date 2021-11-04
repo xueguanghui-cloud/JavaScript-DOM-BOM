@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<input type="button" value="修改" id="btn">
+
+	<input type="text" name="name" value="您好">
+	<input type="text" name="name1" value="您好">
+	<input type="text" name="name" value="您好">
+	<input type="text" name="name1" value="您好">
+	<input type="text" name="name1" value="您好">
+
+	<script type="text/javascript" src="./common.js"></script>
+	<script type="text/javascript">
+		my$("btn").onclick = function() {
+			//通过name属性值获取表单元素
+			var inputs  = document.getElementsByName("name1");
+
+			for(var i = 0; i < inputs.length; i++){
+				inputs[i].value = "我很好！！！";
+			}
+		};
+	</script>
+
+</body>
+</html>

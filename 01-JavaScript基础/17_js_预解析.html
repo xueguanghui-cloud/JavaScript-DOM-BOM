@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+
+	/*
+		预解析：提前解析代码；
+			把变量的声明提前---提前到他所在的作用域的最上面；
+			函数的声明也会提前---提前得到他所在的作用域的最上面；
+
+
+		预解析分段的问题的局部作用域：
+			预解析中，变量的提升，只会在当前的作用域的最上面，不会提升到作用域外面去；
+			预解析会分段(多对的script标签中函数重名，预解析的时候不会冲突)；
+
+	*/
+	f1();
+	console.log(c);
+	console.log(b);
+	console.log(a);	
+	function f1() {
+		var a = b = c = 9;
+		console.log(a);
+		console.log(b);
+		console.log(c);
+	}
+
+
+	// 解析：
+	function f1() {
+		var a;
+		a = 9;
+		// 隐式全局变量
+		b = 9;
+		c = 9;
+		console.log(a);	//9
+		console.log(b);	//9
+		console.log(c);	//9
+	}
+	f1();
+	console.log(c);	//9
+	console.log(b);	//9
+	console.log(a);	//报错
+	
+
+	var f1 = function () {
+		console.log(a); //报错
+		var a = 12;
+	};
+
+
+
+</script>
+
+
+</body>
+</html>

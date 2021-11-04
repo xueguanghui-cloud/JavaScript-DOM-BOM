@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+	/*
+		循环语句：(条件：结束的条件；计数器(记录循环的次数)；)
+
+			while循环：
+				语法：var num = 0;
+					while(循环条件){
+						循环体；
+					}
+				例子:从1加到10等于多少？
+				var num = 0;//存储最终的和
+				var i = 0;//计数器
+				while(i <= 10){
+					num = num + i;
+					i++;
+				}
+				console.log(num,i);
+
+
+			do-while循环：
+				语法：do{
+						循环体
+					}while(条件)		
+				例子：哈哈，输出，哈哈，我太帅了。。10次
+				var i = 0;
+				do{
+					console.log('哈哈，我太帅了。。');
+					i++;
+				}while(i<10);
+
+
+			
+
+	*/
+
+
+		// 练习1：求6的阶乘；
+			var i = 1;
+			var ji = 1;
+			while(i < 7){
+				ji *= i;
+				i++;
+			}
+			console.log('6的阶乘：' + ji)	// 720
+
+
+
+		// 练习2：求1-100之间所有偶数的和；
+			var i = 0;
+			var sum = 0;
+			while(i <= 100){
+				if(i % 2 == 0){
+					sum += i;
+				}
+				i++;
+			}
+			console.log('1-100之间所有偶数的和：' + sum);
+
+		// 练习3：求1-100之间搜有奇数的和；
+			var i = 0;
+			var sum1 = 0;
+			while(i <= 100){
+				if(i % 2 != 0){
+					sum1 += i;
+				}
+				i++;
+			}
+			console.log('1-100之间所有奇数的和：' + sum1);
+
+		// 练习4：求账号和密码是否一致，登录效果的实现；
+		// 提示用户输入账号和密码，如果账号密码不对，则一直提示输入账号密码；
+
+		// var userName = prompt('请您输入账号');
+		// var userPwd = prompt('请您输入密码');
+		// while(userName != 'admin' || userPwd != '123'){
+		// 	userName = prompt('请您输入账号');
+		// 	userPwd = prompt('请您输入密码');
+		// }
+		// console.log('登录成功');
+
+</script>
+
+
+
+</body>
+</html>

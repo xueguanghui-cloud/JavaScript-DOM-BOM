@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+            cursor: pointer;
+        }
+        
+        li {
+            padding: 5px 10px;
+        }
+        
+        #dv {
+            width: 300px;
+            height: 300px;
+            border: 5px dashed pink;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" id="btn" value="创建列表">
+
+    <div id="dv"></div>
+
+    <script src="./common.js"></script>
+    <script>
+        var kungfu = ["降龙十八掌", "九阴真经", "九阴真经", "吸星大法", "葵花宝典", "辟邪剑谱", "乾坤大挪移", "黯然销魂掌", "玉女心经"];
+
+        my$("btn").onclick = function() {
+            // 创建ul并追加到div
+            if (!my$("list")) {
+                var ulObj = document.createElement('ul');
+                ulObj.id = "list";
+                my$("dv").appendChild(ulObj);
+                // 创建li元素并追加到ul
+                for (var i = 0; i < kungfu.length; i++) {
+                    var liObj = document.createElement("li");
+                    setInnerText(liObj, kungfu[i]);
+                    ulObj.appendChild(liObj);
+
+                    // 鼠标进入事件
+                    liObj.onmouseover = mouseoverHandle;
+                    // 鼠标离开事件
+                    liObj.onmouseout = mouseoutHandle;
+                }
+            }
+        }
+
+        // 此位置，按钮点击事件的外面
+        function mouseoverHandle() {
+            this.style.color = "#fff";
+            this.style.backgroundColor = "red";
+        }
+
+        function mouseoutHandle() {
+            this.style.color = "";
+            this.style.backgroundColor = "";
+        }
+
+
+        // 如果是循环的方式添加事件，推荐使用命名函数；
+        // 如果不是循环的方式添加事件，推荐使用匿名函数；
+    </script>
+
+</body>
+
+</html>

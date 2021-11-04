@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	/*
+		创建对象：
+		1.调用系统的构造函数创建对象；
+			var 变量名 = new Object();
+
+
+			// 1.第一种创建的对象的方式：
+			var obj = new Object();
+
+			// 添加属性
+			obj.name = "小苏";
+			obj.age = "23";
+			console.log(obj.name);
+
+			// 添加方法：
+			obj.eat = function () {
+				// body...
+				console.log('吃');
+			}
+			obj.play = function () {
+				// body...
+			}
+			obj.eat();	//方法的调用
+
+
+
+
+
+		2.自定义构造函数创建对象;
+			如何一次性创建多个对象？	工厂模式创建对象
+			function createObject(name){
+				var obj = new Object();
+				//添加属性:
+				obj.name = name;
+				//添加方法：
+				obj.eat = function(){
+					console.log("我就喜欢吃");
+				};
+			}
+			var per1 = new createObject("小苏");
+
+			自定义构造函数创建对象（函数名是大写）：
+				区别：构造函数与普通函数区别：名字是不是大写;
+				语法：function Person(name,age){
+					this.name = name;
+					this.age = age;
+					this.sayHi = function(){
+						console.log("我叫"+this.name+",年龄是："+this.age);
+					};
+				};
+				var person = new Person("小红",29);
+
+				流程：
+					1.在内存中开辟(申请一块空闲的空间)空间，存储创建新的对象；
+					2.把this设置为当前的对象；
+					3.设置对象的属性和方法；
+					4.把this这个对象放回；
+
+
+
+
+
+		3.字面量的方式创建：
+			var obj = {};
+			添加属性：
+			obj.name = "小明";
+			添加方法：
+			obj.sayHi = function(){
+				console.log("我是："+this.name);
+			}
+
+			优化后的写法：
+			var obj2 = {
+				name: '小明',
+				age: 20,
+				sayHi: function(){
+					console.log("我是："+this.name);
+				}
+			}
+			缺陷：一次性的对象，不能传值；
+
+
+
+
+
+		如何获取该变量（对象）是不是属于什么类型的？
+		语法：
+			变量名 instanceof 类型的名字
+
+		总结：
+			设置和获取属性的另一种方法：
+			obj.name = "小明";
+			obj["name"] = "小明";
+
+			在当前的对象的方法中，可以使用this关键字来代表当前的对象；
+			js是一门解释性的语言；
+			是一门脚本语言；
+			是一门弱类型的语言，声明变量都用var；
+			是一门基于对象的语言；
+			是一门动态类型的语言；
+			动态类型的语言：
+				1.代码(变量)只有执行到这个位置的时候，才知道这个变量中存储的是什么，如果是对象，就有对象的属性和方法，如果是变量，就有变量的作用；
+				2.对象没有什么，只要点了，通过点语法，那么就可以为对象添加属性或方法；
+
+
+
+		
+
+	*/
+
+		
+
+		// 创建一个图片的对象，图片有宽，有高，有大小(4m)，图片可以展示信息；
+			function Pic(width,height,size) {
+				this.width = width;
+				this.height = height;
+				this.size = size;
+				this.showMessage = function(){
+					console.log("图片的宽度："+this.width+"图片的高度："+this.height+"图片的大小："+this.size);
+				}
+			}
+			var pic = new Pic(10,20,"4Mb");
+			pic.showMessage();
+
+
+
+
+		// 创建一个狗的对象，狗有颜色，体重，年龄，可以打架，可以吃饭
+
+		function Dog(color,weight,height,age) {
+			this.color = color;
+			this.weight = weight;
+			this.height = height;
+			this.age = age;
+			this.fight = function () {
+				console.log("我会打架");
+			}
+			this.eat = function () {
+				console.log("我就是喜欢吃");
+				console.log(this.color,this.weight,this.height,this.age)
+			}
+			
+		}
+		// 创建对象----实例化一个对象，并初始化
+		var dog1 = new Dog("红色",190,1.8,18);
+		dog1.eat();
+		dog1.fight();
+
+	
+			
+
+
+
+
+
+</script>
+
+</body>
+</html>

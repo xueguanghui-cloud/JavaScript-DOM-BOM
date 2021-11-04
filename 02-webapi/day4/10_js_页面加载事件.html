@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 页面加载事件window.onload:等到页面内容加载完毕之后再加载onload函数里的代码；
+        window.onload = function() {
+            document.getElementById("btn").onclick = function() {
+                alert("Hello");
+            }
+        }
+
+        // 扩展事件--针对IE8
+        // window.onunload---页面关闭后触发
+        window.onunload = function() {
+            alert("页面关闭了");
+        }
+
+        // window.onbeforeunload---页面关闭前触发
+        window.onbeforeunload = function() {
+            alert("页面即将关闭");
+        }
+    </script>
+
+    <input type="button" value="按钮" id="btn">
+</body>
+
+</html>

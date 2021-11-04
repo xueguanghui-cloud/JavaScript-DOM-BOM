@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dv {
+            width: 300px;
+            height: 300px;
+            background-color: hotpink;
+            border-radius: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="变化" id="btn">
+    <div id="dv"></div>
+
+    <script>
+        document.getElementById("btn").onclick = function() {
+            var width = 300;
+            var timeId = setInterval(function() {
+                width++;
+                document.getElementById("dv").style.width = width + "px";
+                if (width >= 600) {
+                    clearInterval(timeId);
+                }
+            }, 10);
+        };
+    </script>
+
+</body>
+
+</html>

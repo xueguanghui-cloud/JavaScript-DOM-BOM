@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 自定义构造函数----》实例化对象
+        function Person(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.eat = function() {
+                console.log("吃大蒜");
+            }
+        }
+        // 构造函数---创建对象 
+        var per = new Person("小羽", 33, "男");
+        per.eat();
+
+        // 实例对象是通过构造函数创建的
+        // console.dir();把这个对象的结构显示出来
+        console.dir(per);
+        console.dir(Person);
+
+        console.log(per.constructor == Person);
+        console.log(per.__proto__.constructor == Person);
+        console.log(per.__proto__.constructor == Person.prototype.constructor);
+
+        // 实例对象和构造函数之间的关系：
+        // 1.实例对象是通过构造函数来创建的---创建的过程叫做实例化对象
+        // 2.如何判断对象是不是这个数据类型？
+        //   1) 通过构造器的方式：实例对象.constructor == 构造函数名字
+        //   2) 对象 instanceof 构造函数名字
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+
+      // 沙箱：在一个虚拟环境中模拟真实世界，做实验，实验结果和真是世界的结果是一样的，但是不会影响真是世界
+      (function () {
+        var num = 10;
+        console.log(num);
+      })();
+
+      // 案例：
+      var str = '小白喜欢小黑';
+      (function () {
+        var str = '小红喜欢小绿'
+        str = str.substr(2);
+        console.log(str);
+      })();
+
+      str = str.substr(2);
+      console.log(str);
+    </script>
+
+
+    <div>这是div</div>
+    <div>这是div</div>
+    <div>这是div</div>
+    <p>这是p</p>
+    <p>这是p</p>
+    <p>这是p</p>
+    <script>
+
+      (function () {
+        var divObjs = document.getElementsByTagName('div');
+        for (var i = 0; i < divObjs.length; i++) {
+          divObjs[i].style.border = '2px solid #008c8c';
+        }
+        var pObjs = document.getElementsByTagName('p');
+        for (var i = 0; i < pObjs.length; i++) {
+          pObjs[i].style.border = '2px solid #008c8c';
+        }
+      }
+      )();
+
+
+
+
+    </script>
+
+  </body>
+
+</html>

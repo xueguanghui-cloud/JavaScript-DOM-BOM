@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .map {
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: #ccc;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="map">
+
+    </div>
+
+
+    <script>
+        // 产生随机数对象
+        (function(window) {
+            function Random() {
+
+            };
+            // 在原型中添加方法
+            Random.prototype.getRandom = function(min, max) {
+                    return Math.floor(Math.random() * (max - min) + min);
+                }
+                // 将局部变量变为全局变量
+            window.Random = new Random();
+        })(window);
+
+        // 产生小方块
+        (function() {
+            var map = document.querySelector(".map");
+            // 食物的构造函数
+            function Food(width, height, color) {
+                this.width = width || 20;
+                this.height = height || 20;
+                this.color = color || aqua;
+                // 横坐标，纵坐标
+                this.x = 0;
+                this.y = 0;
+                this.element = document.createElement("div"); //小方块
+            };
+            // 初始化小方块的显示效果及位置
+            Food.prototype.init = function(map) {
+                // 设置小方块的样式
+                var div = this.element;
+                div.style.position = "absolute";
+                div.style.width = this.width + "px";
+                div.style.height = this.height + "px";
+                div.style.backgroundColor = this.color;
+                // 把小方块加到map地图中
+                map.appendChild(div);
+                this.render(map);
+            };
+            Food.prototype.render = function(map) {
+                console.log(this.x);
+                // 随机产生横纵坐标
+                var x = Random.getRandom(0, map.offsetWidth / this.width) * this.width;
+                var y = Random.getRandom(0, map.offsetHeight / this.height) * this.height;
+                this.x = x;
+                this.y = y;
+                var div = this.element;
+                div.style.left = this.x + "px";
+                div.style.top = this.y + "px";
+            }
+
+            var fd = new Food(20, 20, "green");
+            fd.init(map);
+
+        })();
+    </script>
+</body>
+
+</html>

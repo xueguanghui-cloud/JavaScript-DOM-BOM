@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+            height: 300px;
+        }
+        
+        #dv {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="摇起来" id="btn1">
+    <input type="button" value="停下来" id="btn2">
+    <div id="dv">
+        <img src="img/01.jfif" alt="">
+        <img src="img/02.jfif" alt="">
+    </div>
+
+    <script>
+        var timer = '';
+        document.getElementById("btn1").onclick = function() {
+            timerId = setInterval(function() {
+                // 随机数
+                var x = parseInt(Math.random() * 100 + 1);
+                var y = parseInt(Math.random() * 100 + 1);
+                document.getElementById("dv").style.left = x + "px";
+                document.getElementById("dv").style.top = y + "px";
+            }, 200)
+        }
+
+        document.getElementById("btn2").onclick = function() {
+            clearInterval(timerId);
+        }
+    </script>
+
+</body>
+
+</html>

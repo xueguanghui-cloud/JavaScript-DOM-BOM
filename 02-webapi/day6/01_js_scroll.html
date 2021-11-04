@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        input {
+            position: absolute;
+            left: 330px;
+            top: 20px;
+        }
+        
+        div {
+            width: 300px;
+            height: 200px;
+            border: 2px solid pink;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <input type="button" value="按钮" id="btn">
+
+    <div id="dv">
+        我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！ 我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！ 我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！ 我好帅！我好帅！我好帅！我好帅！我好帅！我好帅！
+    </div>
+
+    <script>
+        // scrollWidth:元素中内容实际的宽(没有边框),如果没有内容，则获取的是元素的宽；
+        // scrollHeight:元素中内容实际的高(没有边框),如果没有内容，则获取的是元素的高；
+        // scrollTop：向上卷曲出去的距离；
+        // scrollLeft：想左卷曲出去的距离：
+        document.getElementById("btn").onclick = function() {
+            // console.log(document.getElementById("dv").scrollWidth);
+            // console.log(document.getElementById("dv").scrollHeight);
+
+            // console.log(document.getElementById("dv").scrollTop); //向上卷曲出去的距离
+            // console.log(document.getElementById("dv").scrollLeft); //向左卷曲出去的距离
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<style type="text/css">
+		#txt{
+			color: gray;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<input type="text" value="请输入搜索内容" id="txt">
+
+
+	<script type="text/javascript" src="./common.js"></script>
+
+	<script type="text/javascript">
+		
+		my$("txt").onfocus = function() {
+			if(this.value == "请输入搜索内容"){
+				this.value = '';
+				this.style.color = "black";
+			}
+		}
+
+		my$("txt").onblur = function() {
+			if(this.value.length == 0){
+				this.value = "请输入搜索内容";
+				this.style.color = "gray";
+			}
+		}
+
+	</script>
+
+</body>
+</html>

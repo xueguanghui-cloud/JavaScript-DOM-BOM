@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="button" value="按钮" id="btn">
+
+    <script src="./common.js"></script>
+    <script>
+        // 为任意元素，绑定任意的事件。参数：任意元素，事件类型，处理函数
+        function addEventListener(element, type, fun) {
+            // 判断浏览器是否支持这个方法
+            if (element.addEventListener) {
+                element.addEventListener(type, fun, false);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, fun);
+            } else {
+                element["on" + type] = fun;
+            }
+        }
+
+        addEventListener(my$("btn"), "click", function() {
+            console.log("小苏好帅哦");
+        })
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="button" value="按钮" id="btn">
+
+    <script src="./common.js"></script>
+    <script>
+        /*
+              
+              addEventListener与attachEvent的区别：
+              相同点：都可以为元素绑定事件；
+              不同点：
+                1.方法名不同；
+                2.参数个数不同：
+                  addEventListener 参数是三个；
+                  attachEvent 参数是二个；
+                3.浏览器支持情况：
+                  addEventListener 谷歌、火狐、IE11支持，IE8不支持；
+                  attachEvent 谷歌、火狐、IE11不支持，IE8支持；
+                4，this的指向不同：
+                  addEventListener 的this是当前绑定事件的对象；
+                  attacEvent 的this是window；
+                5.事件类型的区别：
+                  addEventListener 中事件的类型(事件的名字)没有on；
+                  attacEvent  中事件的类型(时间的名字)有on*
+          
+              
+              
+              */
+
+        my$("btn").addEventListener("click", function() {
+            console.log(this);
+        }, false);
+
+        my$("btn").attachEvent("onclick", function() {
+            console.log(this);
+        });
+    </script>
+
+</body>
+
+</html>

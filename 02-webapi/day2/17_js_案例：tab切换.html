@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<style type="text/css">
+		
+
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		ul{
+			list-style: none;
+		}
+
+		.box{
+			width: 500px;
+			height: 600px;
+			margin: 50px auto;
+		}
+
+		.box .hd{
+			width: 100%;
+			height: 50px;
+		}
+
+		.box .hd span{
+			display: inline-block;
+			width: 25%;
+			height: 100%;
+			line-height: 50px;
+			text-align: center;
+			cursor: pointer;
+			border: 1px solid #fff;
+			box-sizing: border-box;
+			background-color: #ccc;
+		}
+		.box .hd span.curtten{
+			color: #fff;
+			background-color: #008c8c;
+		}
+
+		.box .bd{
+			width: 100%;
+			height: 550px;
+		}
+
+		.box .bd ul{
+			width: 100%;
+			height: 100%;
+		}
+
+		.box .bd ul li{
+			width: 100%;
+			height: 100%;
+			display: none;
+			background-color: #aaa;
+		}
+		.box .bd ul li.content{
+			width: 100%;
+			height: 100%;
+			color: #fff;
+			display: block;
+			background-color: #008c8c;
+		}
+	</style>
+
+</head>
+<body>
+
+
+	<div id="box" class="box">		
+		<div class="hd">
+			<span class="curtten">首页</span><span>新闻</span><span>体育</span><span>财经</span>
+		</div>
+		<div class="bd">
+			<ul>
+				<li class="content">我是首页</li>
+				<li>新闻页</li>
+				<li>体育页</li>
+				<li>财经页</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="./common.js"></script>
+	<script type="text/javascript">
+		
+		// 获取最外面的标签
+		var box = my$("box");
+
+
+		var hd = box.getElementsByTagName("div")[0];
+		var bd = box.getElementsByTagName("div")[1];
+
+		var list = bd.getElementsByTagName("li");
+		var spans = hd.getElementsByTagName("span");
+
+		for(var i = 0; i < spans.length; i++ ){
+
+			// 再点击之前保存索引到span标签中
+			spans[i].setAttribute("index", i);
+
+			spans[i].onclick = function() {
+				// 1.移除span的所有类样式
+				for(var j =0; j < spans.length; j++){
+					spans[j].removeAttribute("class");
+				}
+				// 2.给当前span添加类样式
+				this.className = "curtten";
+
+				// 3.获取所有的li标签，并移除其类样式
+				for(var k = 0; k < list.length; k++){
+					list[k].removeAttribute("class");
+				}
+
+				// 4.给当前点击的span标签对应的li标签添加类样式
+				var num = this.getAttribute("index")
+				list[num].className = "content";
+
+			}
+			
+		}
+
+
+	</script>
+
+
+</body>
+</html>

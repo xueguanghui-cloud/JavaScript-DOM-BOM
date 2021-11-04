@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		
+	</title>
+</head>
+<body>
+
+	<input type="button" value="变色" id="btn">
+
+	<ul id="uu">
+		<li>千锤万凿出深山，</li>
+		<li>烈火焚烧若等闲。 </li>
+		<li>粉身碎骨浑不怕，</li>
+		<li>要留清白在人间。 </li>
+		<li>千锤万凿出深山，</li>
+		<li>烈火焚烧若等闲。 </li>
+		<li>粉身碎骨浑不怕，</li>
+		<li>要留清白在人间。 </li>
+	</ul>
+
+	<script type="text/javascript" src="./common.js"></script>
+	<script type="text/javascript">
+		my$("btn").onclick = function() {
+			var count = 0;//li的个数
+			var nodeList = my$("uu").childNodes;
+			for(var i = 0; i < nodeList.length; i++){
+				if(nodeList[i].nodeType == 1 && nodeList[i].nodeName == "LI"){
+					nodeList[i].style.backgroundColor = count%2 == 0 ? "red" : "yellow";
+					count++;
+				}
+			}
+		}
+	</script>
+
+
+
+</body>
+</html>

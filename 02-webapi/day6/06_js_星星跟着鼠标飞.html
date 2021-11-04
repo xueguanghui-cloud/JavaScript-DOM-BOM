@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #dv {
+            font-size: 50px;
+            color: red;
+            position: absolute;
+        }
+        
+        body {
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dv">
+        ★
+    </div>
+
+    <script>
+        var evt = {
+            // window.event和事件参数e的兼容
+            getEvent: function(e) {
+                return window.event || e;
+            },
+            // 可视区域的横坐标的兼容代码
+            getClientX: function(e) {
+                return this.getEvent(e).clientX;
+            },
+            // 可视区域的纵坐标的兼容代码
+            getClientY: function(e) {
+                return this.getEvent(e).clientY;
+            },
+            // 页面向左卷曲出去的横坐标
+            getScrollLeft: function() {
+                return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+            },
+            // 页面向上卷曲出去的纵坐标
+            getScrollTop: function() {
+                return window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+            },
+            getPageX: function(e) {
+                // 相对于页面的横坐标
+                return this.getEvent(e).pageX ? this.getEvent(e).pageX : this.getClientX(e) + this.getScrollLeft();
+
+            },
+            getPageY: function(e) {
+                // 相对于页面的纵坐标
+                return this.getEvent(e).pageY ? this.getEvent(e).pageY : this.getClientY(e) + this.getScrollTop();
+            }
+        }
+
+        document.onmousemove = function(e) {
+            document.getElementById("dv").style.left = evt.getPageX(e) + "px";
+            document.getElementById("dv").style.top = evt.getPageY(e) + "px";
+        }
+    </script>
+</body>
+
+</html>

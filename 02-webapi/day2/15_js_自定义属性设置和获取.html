@@ -1,0 +1,39 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="utf-8">
+ 	<title></title>
+ 	<style type="text/css">
+ 		ul{
+ 			list-style: none;
+ 			cursor: pointer;
+ 		}
+ 	</style>
+
+ </head>
+ <body>
+
+ 	<ul id="uu">
+ 		<li>小三的成绩</li>
+ 		<li>小四的成绩</li>
+ 		<li>小五的成绩</li>
+ 		<li>小刘的成绩</li>
+ 	</ul>
+
+ 	<script type="text/javascript" src="./common.js"></script>
+ 	<script type="text/javascript">
+ 		
+ 		var list = my$("uu").getElementsByTagName("li");
+
+        for(var i = 0; i < list.length; i++){
+            // 为每个li添加自定义属性
+            list[i].setAttribute("score",(i+1)*10);
+            list[i].onclick = function() {
+                console.log(this.getAttribute("score"));
+            }
+        }
+
+ 	</script>
+ 
+ </body>
+ </html>

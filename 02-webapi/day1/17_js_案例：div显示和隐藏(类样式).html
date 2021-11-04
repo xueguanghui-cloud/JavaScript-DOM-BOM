@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<style type="text/css">
+		.cls{
+			width: 300px;
+			height: 200px;
+			background-color: red;
+			border: 10px solid yellow;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<input type="button" value="修改" id="btn" name="">
+
+	<div id="dv"></div>
+
+	<script type="text/javascript" src="./common.js"></script>
+	<script type="text/javascript">
+		// 在js代码中操作DOM的时候，设置元素的类样式，不用class关键字，应该是有className；
+		my$("btn").onclick  = function() {
+			my$("dv").className = "cls";
+		}
+	</script>
+
+</body>
+</html>

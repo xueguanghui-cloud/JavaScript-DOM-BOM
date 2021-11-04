@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<input type="text" value="我是文本框"><br><br>
+	<input type="text" value="我是文本框"><br><br>
+	<input type="text" value="我是文本框"><br><br>
+	<input type="text" value="我是文本框"><br><br>
+	<input type="text" value="我是文本框"><br><br>
+
+
+	<input type="button" value="修改" id="btn">
+
+
+	<script type="text/javascript">
+		// 案例:点击按钮修改文本框的值
+		
+		var btn = document.getElementById("btn");
+
+		btn.onclick = function() {
+			var inputList = document.getElementsByTagName("input");
+
+			for(var i = 0; i<inputList.length; i++){
+				if(inputList[i].type != "button"){
+					inputList[i].value = "我被修改了";
+				};				
+			};
+			
+		};
+
+
+	</script>
+
+
+
+</body>
+</html>

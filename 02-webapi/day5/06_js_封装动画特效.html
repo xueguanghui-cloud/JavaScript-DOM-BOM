@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        input {
+            margin-top: 20px;
+        }
+        
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: lawngreen;
+            margin-top: 20px;
+            position: absolute;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input type="button" id="btn" value="回到原位">
+    <input type="button" id="btn1" value="移动到400px">
+    <input type="button" id="btn2" value="移动到800px">
+    <div id="dv"></div>
+
+    <script>
+        // 回到原位
+        document.getElementById("btn").onclick = function() {
+            animate(document.getElementById("dv"), 0)
+        };
+        // 移动到400px
+        document.getElementById("btn1").onclick = function() {
+            animate(document.getElementById("dv"), 400);
+        };
+        // 移动到800px
+        document.getElementById("btn2").onclick = function() {
+            animate(document.getElementById("dv"), 800);
+        };
+
+        // 设置任意一个元素，移动到指定的位置
+        function animate(element, target) {
+            // 清除定时器
+            clearInterval(element.timeId);
+            element.timeId = setInterval(function() {
+                // 获取div当前位置
+                var current = element.offsetLeft;
+                // 移动的步数
+                var step = 1;
+                step = current > target ? -step : step;
+                // 移动后的位置
+                current = current + step;
+                // 判断div是否到达目标位置
+                if (Math.abs(target - current) >= Math.abs(step)) {
+                    // 设置div的位置
+                    element.style.left = current + "px";
+                } else {
+                    // 清除定时器
+                    clearInterval(element.timeId);
+                    element.style.left = target + "px";
+                };
+            }, 5);
+        };
+    </script>
+</body>
+
+</html>

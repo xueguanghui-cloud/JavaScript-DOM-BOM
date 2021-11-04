@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+
+	<p id="txt">我是一匹黑马！！！</p>
+	<input type="button" value="修改" id="btn">
+
+	<script type="text/javascript">
+		
+		// 案例：点击按钮，修改p标签的显示的内容；
+
+		// 获取按钮
+		var btn = document.getElementById("btn");
+
+		// 为元素注册事件
+		btn.onclick = function() {
+			// 获取p标签
+			var txt = document.getElementById("txt");
+			// 设置p标签里面的内容
+			txt.innerText = "我不是黑马，我是白马";
+		};
+
+
+	</script>
+
+</body>
+</html>

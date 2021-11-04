@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<input type="button" value="修改" id="btn">
+
+	<input type="radio" name="sex" value="1" checked="checked">男
+	<input type="radio" name="sex" value="2" id="rad1">女
+	<input type="radio" name="sex" value="3">保密
+
+	<script type="text/javascript">
+		
+		function my$(id) {
+			return document.getElementById(id);
+		};
+
+		// 点击按钮将性别修改为女
+		my$("btn").onclick = function () {
+			my$("rad1").checked = true;
+		};
+
+	</script>
+
+
+
+	<input type="button" value="修改1" id="btn1">
+
+	<input type="checkbox" name="xingqu" value="1" id="check1">吃饭
+	<input type="checkbox" name="xingqu" value="2">睡觉
+	<input type="checkbox" name="xingqu" value="3" id="check2">打豆豆
+	<input type="checkbox" name="xingqu" value="4">写代码
+
+
+	<script type="text/javascript">
+		// 点击按钮将兴趣修改为吃饭和打豆豆
+		my$("btn1").onclick = function(){
+			my$("check1").checked = true;
+			my$("check2").checked = true;
+		}
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+
+		/*数据类型：
+		 	基本数据类型：number,string, boolean,NaN,undefined
+		 	高级数据类型：Object，Array
+			获取数据类型的方法：console.log(typeof 变量名)
+		*/
+		console.log(typeof 2);//number
+
+
+
+
+		/**
+		 * 数据类型转换：
+		 * 	其它类型转数字类型：
+		 * 		1.parseInt();转整数
+		 * 		2.parseFloat();转浮点数
+		 * 		3.Number();转数字
+		 * 		总结：想要转整数用户parseInt(),想要转小数用parseFloat(),想要转数字Number(),比前面两种严格		
+		 * 
+		 * 
+		 * 	其他类型转字符串类型：
+		 * 		1.toString()	语法：num.toString
+		 * 		2.String()		语法：String(num)
+		 * 		
+		 * 		总结：如果变量有意义调用.toString()使用转换
+		 * 			如果变量没有意义使用String()转换
+		 * 
+		 * 其它类型转布尔类型：
+		 * 	1.Boolean()
+		 * 		0,空字符串,null,undefined都是false
+		 * 
+		 * 
+		 * */ 
+
+
+		 /*
+			操作符：
+
+				算数运算符:+ - * / %	
+				一元运算符:++ ——这个操作符只需要一个符号就可以运算的符号
+				二元运算符:这个操作符只需要两个符号就可以运算的符号
+				三元运算符:
+				复合运算法:+= +- *= /= %=
+				关系运算符:> < >= <= ==(不严格) ===(严格) != !==
+				逻辑运算符:&&(逻辑与--并且) ||(逻辑或--或者) !(逻辑非--取非)
+				赋值运算符:=
+
+				注意：一元运算符：
+				如果++在前面，如++num + 10参与运算
+					先进行运算，后进行自加；
+				如果++在后面，如num++ + 10参与运算
+					先进行自加，后进行运算；
+					
+		 */
+
+
+
+		 // 作业：
+		 //	交换变量，类型装换，操作符，自己整理笔记
+
+		 // 交换变量：
+		 	var num1 = 12;
+		 	var	num2 = 21;
+		 	var flag = num1;
+		 	num1 = num2;
+		 	num2 = flag;
+		 	console.log(num1,num2)
+
+		 // 类型转换：
+		 	var str1 = '12';
+		 	var str2 = 'true';
+		 	var str3 = '12aaa';
+		 	var str4 = '12.323aaa';
+
+		 	console.log(parseInt(str1))//12
+		 	console.log(parseInt(str2))//NaN
+		 	console.log(parseInt(str3))//12
+		 	console.log(parseInt(str4))//12
+
+		 	console.log(parseFloat(str1))//12
+		 	console.log(parseFloat(str2))//NaN
+		 	console.log(parseFloat(str3))//12
+		 	console.log(parseFloat(str4))//12.323
+
+
+		 	console.log(Number(str1))//12
+		 	console.log(Number(str2))//NaN
+		 	console.log(Number(str3))//NaN
+		 	console.log(Number(str4))//NaN
+
+		 // 操作符：	false && true || false
+		 var res = (123 >= '321' && '人' != '狗' || (2 + 12 *5) > 62);
+		 console.log(res);//false
+
+	</script>
+</body>
+</html>

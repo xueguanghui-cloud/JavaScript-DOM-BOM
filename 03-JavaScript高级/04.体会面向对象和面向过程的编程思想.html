@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn">
+    <div id="dv">
+
+    </div>
+
+
+    <script>
+        function ChangeStyle(btnObj, dvObj, json) {
+            this.btnObj = btnObj;
+            this.dvObj = dvObj;
+            this.json = json;
+        }
+
+        ChangeStyle.prototype.init = function() {
+            var that = this;
+            this.btnObj.onclick = function() {
+                console.log('123');
+                for (var key in that.json) {
+                    that.dvObj.style[key] = that.json[key];
+                }
+            }
+        }
+
+        // 实例化对象
+        var btn = document.getElementById("btn");
+        var dv = document.getElementById('dv');
+        var json = {
+            "width": "500px",
+            "height": "600px",
+            "backgroundColor": "blue",
+            "opacity": "0.3"
+        };
+        var p1 = new ChangeStyle(btn, dv, json);
+        p1.init();
+    </script>
+
+
+    <script>
+        // 面向对象思想--初级的
+        // document.getElementById("btn").onclick = function() {
+        //     document.getElementById("dv").style.backgroundColor = "red";
+        // };
+
+        // function ChangeStyle(btnId, dvId, color) {
+        //     this.btnObj = document.getElementById(btnId);
+        //     this.dvObj = document.getElementById(dvId);
+        //     this.color = color;
+        // };
+
+        // // 数据共享来改变颜色
+        // ChangeStyle.prototype.init = function() {
+        //     console.log(this); //就是实例对象--就是当前对象
+        //     var that = this;
+        //     // 点击按钮，改变div的背景颜色
+        //     this.btnObj.onclick = function() {
+        //         that.dvObj.style.backgroundColor = that.color;
+        //     };
+        // };
+
+        // // 实例化对象
+        // var cs = new ChangeStyle("btn", "dv", "yellow");
+        // console.log(cs);
+    </script>
+</body>
+
+</html>

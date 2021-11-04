@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+			body{
+				position: relative;
+			}
+			#node_small{
+				position: absolute;
+				right: 0;
+				top: 300px;
+			}
+
+			#node_small>a{
+				position: absolute;
+				right: 0;
+				width: 40px;
+				height: 40px;
+				display: inline-block;
+				background: url("./img/taobao.png")no-repeat;
+				background-size: 100%;
+			}
+			#node_small .erweima{
+				position: absolute;
+				right: 50px;
+				width: 100px;
+				height: 100px;
+			}
+
+			#node_small .erweima  img{
+				width: 100%;
+			}
+
+			.hide{
+				display: none;
+			}
+
+			.show{
+				display: block;
+			}
+
+	</style>
+</head>
+<body>
+
+<div id="node_small">
+	<a href="#"></a>
+	<div class="erweima hide" id="er">
+		<img src="./img/taobao.png">
+	</div>
+</div>
+
+<script type="text/javascript" src="./common.js"></script>
+<script type="text/javascript">
+	
+	var a = my$("node_small").getElementsByTagName("a")[0];
+
+	a.onmouseover = function() {
+		my$("er").className = "erweima show";
+	};
+
+	a.onmouseout = function() {
+		my$("er").className = "erweima hide";
+	};
+
+</script>
+
+
+</body>
+</html>

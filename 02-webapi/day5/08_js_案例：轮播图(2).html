@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            vertical-align: top;
+        }
+        
+        .box {
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        .inner {
+            width: 520px;
+            height: 280px;
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .inner ul {
+            width: 1000%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .inner ul li {
+            float: left;
+        }
+        
+        #focus {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+        }
+        
+        #focus span {
+            cursor: pointer;
+            width: 20px;
+            height: 40px;
+            display: inline-block;
+            text-align: center;
+            color: #fff;
+            line-height: 40px;
+            background-color: rgba(0, 0, 0, .3);
+        }
+        
+        #focus span#left {
+            position: absolute;
+            left: 0;
+        }
+        
+        #focus span#right {
+            position: absolute;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <!-- 相框 -->
+        <div class="inner">
+            <ul>
+                <li>
+                    <a href="#"><img src="img/1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/3.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/4.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/5.jpg" alt=""></a>
+                </li>
+            </ul>
+            <div id="focus">
+                <span id="left">&lt;</span>
+                <span id="right">&gt;</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 获取最外面的div
+        var box = document.getElementById("box");
+        // 获取相框
+        var inner = box.children[0];
+        // 获取相框的宽度
+        var imgWidth = inner.offsetWidth;
+        // 获取ul
+        var ulObj = inner.children[0];
+        // 获取左右焦点的div
+        var focus = inner.children[1];
+
+        // 显示左右焦点
+        box.onmouseover = function() {
+            focus.style.display = "block";
+        };
+        box.onmouseout = function() {
+            focus.style.display = "none";
+        };
+
+        //点击左边按钮
+        var index = 0;
+        document.getElementById("left").onclick = function() {
+            if (index > 0) {
+                index--;
+                animate(ulObj, -index * imgWidth);
+            }
+        };
+        // 点击右边按钮
+        document.getElementById("right").onclick = function() {
+            if (index < ulObj.children.length - 1) {
+                index++;
+                animate(ulObj, -index * imgWidth);
+            }
+        };
+
+
+
+        // 设置任意一个元素，移动到指定的位置
+        function animate(element, target) {
+            // 清除定时器
+            clearInterval(element.timeId);
+            element.timeId = setInterval(function() {
+                // 获取div当前位置
+                var current = element.offsetLeft;
+                // 移动的步数
+                var step = 10;
+                step = current > target ? -step : step;
+                // 移动后的位置
+                current = current + step;
+                // 判断div是否到达目标位置
+                if (Math.abs(target - current) >= Math.abs(step)) {
+                    // 设置div的位置
+                    element.style.left = current + "px";
+                } else {
+                    // 清除定时器
+                    clearInterval(element.timeId);
+                    element.style.left = target + "px";
+                };
+            }, 10);
+        };
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+	 /*
+		内置对象：Array()对象是用于构造数组的全局对象，数组是类似于列表的高阶对象。
+
+		方法：
+			Array.isArray(obj);判断当前这个对象是不是对象；
+			arr.contact(arr1,arr2,...);拼合数组；
+			arr.every(函数);返回值是布尔值，函数作为参数使用，函数中有三个参数，第一个参数是元素的值，第二个参数是元素的索引值，第三个参数是原来的数组（没用）;如果这个数组中的每个元素的值都符合条件，最后才返回true；
+			arr.filter(函数);返回每一个都符合条件的元素，组成一个新数组；
+			arr.push(值);给数组追加一个值，返回数组的长度；
+			arr.pop();删除数组的最后一个元素，返回值是删除元素的值；
+			arr.shift();删除数组中第一个元素，返回值就是删除的值；
+			arr.unshift();向数组的第一个元素添加一个新元素，返回数组的长度；
+			arr.forEach(函数);遍历；
+			arr.indexOf(元素值);找指定元素的索引，找不到返回-1；
+			arr.join("分隔符");返回字符串；
+			arr.map(函数); 数组中的每个元素都要执行这个函数，将执行后的结果组成一个新数组返回；
+			arr.reverse();反转数组；
+			arr.sort();将数组排序，不稳定，返回排序后的数组；
+			arr.slice(开始位置索引，结束位置索引);截取指定的数组，返回一个新数组，不包含结束位置索引的在值；
+			arr.splice(开始的位置，要删除的个数，替换的元素值);
+
+
+
+
+	 */
+
+	 // arr.every()使用方法
+	 var arr = [1000,3000,2000];
+	 var res = arr.every(function (a,b,c) {
+	 	// console.log(a+"==="+b+"==="+c)
+	 	return a > 2000;
+	 	// 数组中的每一个元素的值都要大于2000的情况在，最后才返回true
+	 })
+	 // console.log(res);
+
+
+	 // arr.filter();使用方法
+	 var arr1 = [10,20,30,40,50,60,70,80];
+	 var newArray = arr1.filter(function (ele) {
+	 	return ele > 40;
+	 });
+
+	 console.log(newArray);
+
+
+
+</script>
+
+</body>
+</html>

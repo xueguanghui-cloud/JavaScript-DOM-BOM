@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		
+	</title>
+</head>
+<body>
+	<input type="button" value="getFirstElementChild" id="btn1">
+	<input type="button" value="getLastElementChild" id="btn2">
+	<input type="button" value="getPerElementChild" id="btn3">
+	<input type="button" value="getNextElementChild" id="btn4">
+	<ul id="uu">
+		<li>第一个</li>
+		<li>第二个</li>
+		<li id="three">第三个</li>
+		<li>第四个</li>
+		<li>第五个</li>
+	</ul>
+
+	<script type="text/javascript" src="./common.js"></script>
+	<script type="text/javascript">
+		// 第一个节点和第一个元素的获取代码在IE8中可能不支持
+		// 获取任意一个父级元素的第一个子级元素--节点方法
+		// element.firstChild --> 谷歌火狐获取的是第一个子节点
+		// element.firstChild --> IE8获取的是第一个子元素
+		// element.firstElementChild --> 谷歌火狐获取的是第一个子元素，IE8不支持
+		function getFirstElementChild(element) {
+			if(element.firstElementChild){//true 支持
+				return element.firstElementChild;
+			}else{
+				var node =  element.firstChild;
+				while(node && node.nodeType != "1"){
+					node = node.nextSibling;
+				}
+				return node;
+			}
+		}
+
+		// 测试
+		my$("btn1").onclick = function() {
+			console.log(getFirstElementChild(my$("uu")));
+		}
+
+
+
+
+		// 最后一个个节点和最后一个元素的获取代码在IE8中可能不支持
+		// 获取任意一个父级元素的最后一个子级元素--节点方法
+		// element.lastChild --> 谷歌火狐获取的是第一个子节点
+		// element.lastChild --> IE8获取的是第一个子元素
+		// element.lastElementChild --> 谷歌火狐获取的是第一个子元素，IE8不支持
+		function getLastElementChild(element) {
+			if(element.lastElementChild){//true支持
+				return element.lastElementChild;
+			}else{
+				var node = element.lastChild;
+				while(node && node.nodeType != "1"){
+					node = node.previousSibling;
+				}
+			}
+		}
+		// 测试
+		my$("btn2").onclick = function() {
+			console.log(getLastElementChild(my$("uu")));
+		}
+
+		// 前一个节点和前一个元素的获取代码在IE8中可能不支持
+		// element.previousSibling --> 谷歌火狐获取的是第一个子节点
+		// element.previousSibling --> IE8获取的是第一个子元素
+		// element.previousElementSibling --> 谷歌火狐获取的是第一个子元素，IE8不支持
+		// 获取任意兄弟元素的前一个元素--节点方法
+		function getPerElementChild(element){
+			if(element.previousElementSibling){//true 支持
+				return element.previousElementSibling
+			}else{
+				var node = element.previousSibling;
+				while(node && node.nodeType == "1"){
+					node = node.previousSibling;
+				}
+			}
+		}
+
+		// 测试
+		my$("btn3").onclick = function() {
+			console.log(getPerElementChild(my$("three")));
+		}
+
+
+
+		// 后一个节点和后一个元素的获取代码在IE8中可能不支持
+		// element.nextSibling --> 谷歌火狐获取的是第一个子节点
+		// element.nextSibling --> IE8获取的是第一个子元素
+		// element.nextElementSibling --> 谷歌火狐获取的是第一个子元素，IE8不支持
+		// 获取任意兄弟元素的前一个元素--节点方法
+		function getNextElementChild(element){
+			if(element.nextElementSibling){//true 支持
+				return element.nextElementSibling
+			}else{
+				var node = element.nextSibling;
+				while(node && node.nodeType == "1"){
+					node = node.nextSibling;
+				}
+			}
+		}
+
+		// 测试
+		my$("btn4").onclick = function() {
+			console.log(getNextElementChild(my$("three")));
+		}
+
+
+
+
+	</script>
+
+</body>
+</html>

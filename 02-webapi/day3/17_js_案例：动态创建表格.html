@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #dv {
+            width: 300px;
+            height: 300px;
+            border: 2px solid pink;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <input type="button" value="创建表格" id="btn">
+
+    <div id="dv"></div>
+
+    <script src="./common.js"></script>
+    <script>
+        var arr = [{
+            name: "百度",
+            href: "http://www.baidu.com"
+        }, {
+            name: "谷歌",
+            href: "http://www.google.com"
+        }, {
+            name: "优酷",
+            href: "http://www.youku.com"
+        }, {
+            name: "土豆",
+            href: "http://www.tudou.com"
+        }, {
+            name: "火狐",
+            href: "http://www.huohu.com"
+        }, {
+            name: "爱奇艺",
+            href: "http://www.aiqiyi.com"
+        }, ];
+
+        // 点击按钮创建表格
+        my$("btn").onclick = function() {
+            // 创建表格追加到div中
+            var tableObj = document.createElement("table");
+            tableObj.border = 1;
+            tableObj.cellPadding = "0";
+            tableObj.cellSpacing = "0"
+            my$("dv").appendChild(tableObj);
+            // 创建tr追加到table
+            for (var i = 0; i < arr.length; i++) {
+                var dt = arr[i]; //每个对象
+                var trObj = document.createElement("tr");
+                tableObj.appendChild(trObj);
+                // 创建第一列
+                var tdObj1 = document.createElement('td');
+                tdObj1.innerText = dt.name;
+                trObj.appendChild(tdObj1);
+                // 创建第二列
+                var tdObj2 = document.createElement('td');
+                tdObj2.innerHTML = "<a href=" + dt.href + ">" + dt.name + "</a>";
+                trObj.appendChild(tdObj2);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

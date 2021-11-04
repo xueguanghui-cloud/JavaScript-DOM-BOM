@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn">
+	<div id="dv">
+		<span>这是span</span>
+		<p>这是p</p>
+		<span>这是span</span>
+		<p>这是p</p>
+		<span>这是span</span>
+		<p>这是p</p>
+		<a href="#">百度</a>
+	</div>
+
+	<script type="text/javascript" src="./common.js"></script>
+	<script type="text/javascript">
+		// 点击按钮，让所有的p标签变色----操作节点的方法
+		my$("btn").onclick = function() {
+			// 获取div
+			var dvObj = document.getElementById("dv");
+			var nodeList = dvObj.childNodes;
+			// 遍历节点
+			for(var i = 0; i < nodeList.length; i++){
+				// 判断节点是不是p元素
+				if(nodeList[i].nodeType == 1 && nodeList[i].nodeName == "P"){
+					nodeList[i].style.backgroundColor = "red";
+					nodeList[i].style.color = "#fff";
+				}
+			}
+		}
+	</script>
+
+</body>
+</html>

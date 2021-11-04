@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="button" value="按钮" id="btn">
+    <input type="button" value="解绑" id="btn1">
+
+    <script src="./common.js"></script>
+    <script>
+        // 为元素绑定事件
+        function addEventListener(element, type, fun) {
+            if (element.addEventListener) {
+                element.addEventListener(type, fun, false);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, fun);
+            } else {
+                element["on" + type] = fun;
+            }
+        }
+
+
+        // 为元素解绑事件
+        function removeEventListener(element, type, funName) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, funName, false);
+            } else if (element.detachEvent) {
+                element.detachEvent("on" + type, funName);
+            } else {
+                element["on" + type] = null;
+            }
+        }
+
+
+
+        // 测试
+
+        function f1() {
+            console.log("第一个");
+        }
+
+        function f2() {
+            console.log("第二个");
+        }
+
+
+        addEventListener(my$("btn"), "click", f1);
+        addEventListener(my$("btn"), "click", f2);
+
+        addEventListener(my$("btn1"), "click", function() {
+            removeEventListener(my$("btn"), "click", f1);
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+	
+
+	// 判断一个数字是否是质数：
+	function isPrimeNumber(x){
+		for(var i = 2; i <= x/2; i++){
+			if(x % i == 0){
+				return false;
+			}else{
+				return true;
+			}
+		}		
+	}
+
+	// 获取用户输入的数字；
+	var res = prompt("请输入一个数字");
+
+	// 判断用户输入是否为空；
+	if(res == ""){
+		alert('您输入有误！');
+	}else{
+		// 判断用户输入的是否是一个数字；
+		if(!isNaN(res)){
+			// 通过调用isPrimeNmber函数，判断用户输入的这个数字是否是质数；
+			if(isPrimeNumber(res)){
+				alert(res+"是质数");
+			}else{
+				alert(res+"不是质数");
+			}
+		}else{
+			alert("您输入的不是一个数字！");
+		}
+	}
+
+
+</script>
+
+</body>
+</html>

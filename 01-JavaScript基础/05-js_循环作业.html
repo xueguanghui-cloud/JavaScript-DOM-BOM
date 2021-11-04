@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		// 作业1：本金10000元存入银行，年利率是千分之三，将本金和利息相加作为新的本金，计算五年后，获得的本金是多少？
+
+		var benjin = 10000;
+		var lilv = 0.003;
+		for(var i = 1; i <= 5; i++){
+			benjin = benjin + (benjin * lilv);
+		}
+		console.log('五年后的本金是：'+benjin);
+
+
+
+		// 作业2：有个人想知道，一年之内一对兔子能繁殖多少对？于是就筑了一道围墙一对兔子关在里面，已知一对兔子每个月可以生一对小兔子，而一对小兔子从出生后第三个月起每月生一对小兔子，假如一年之内没有发生死亡现象，那么，一对兔子一年之内能繁殖多少对？（兔子的规律为数列：1，1，2，3，5，13，21）
+		var num1 = 1;
+		var num2 = 1;
+		for(var i = 3; i <= 12; i++){
+			var sum = num1+num2;
+			num1 = num2;
+			num2 = sum;
+		}
+		console.log("一对兔子一年之内能繁殖"+sum+"对兔子");
+
+
+
+	</script>
+
+</body>
+</html>

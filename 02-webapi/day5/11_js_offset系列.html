@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        input {
+            margin-top: 250px;
+        }
+        
+        #dv1 {
+            width: 200px;
+            height: 150px;
+            background-color: hotpink;
+            position: absolute;
+            top: 100px;
+            left: 200px;
+        }
+        
+        #dv2 {
+            width: 100px;
+            height: 50px;
+            background-color: indigo;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="dv1">
+        <div id="dv2">
+
+        </div>
+    </div>
+    <input type="button" id="btn" value="按钮">
+
+    <script>
+        // offset系列：
+        // 没有脱离文档流：offset：父级元素margin+父级元素padding+父级border+自己margin；
+        // 脱离文档流：offset：和父级元素没有关系，主要是自己的left和自己的margin；
+        // offsetWidth：获取元素的宽(含有元素的边框)；
+        // offsetHeight：获取元素的高(含有元素的边框)；
+        // offsetTop:获取元素距离上边的距离；
+        // offsetLeft：获取元素距离左边的距离；
+
+
+
+        document.getElementById("btn").onclick = function() {
+            // 获取dv1的宽和高
+            var width = document.getElementById("dv1").offsetWidth;
+            var height = document.getElementById("dv1").offsetHeight;
+            console.log(width, height);
+            // 获取元素的距离左边和上边的距离
+            var top = document.getElementById("dv1").offsetTop;
+            var left = document.getElementById("dv1").offsetLeft;
+            console.log(top, left);
+        };
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+	// 原始数据类型：number，string，Boolean，undefined，null，object
+	// 基本类型(简单类型)，值类型：number，string，boolean
+	// 复杂类型(引用类型)：object
+	// 空类型：null，undefined
+
+	// 值类型的值在那一块空间中存储？	栈中存储；
+	// 引用类型的值在那一块空间中存储？对象在堆中存储，地址在栈中存储；
+
+
+	// 值类型之间传递的是值
+	var num = 10;
+	var num2 = num;	//这里的赋值是，将num的值复制一份给num2，所以对num的值没有影响
+
+
+
+	// 引用类型之间的传递的是地址
+	var obj = {
+		name: "小明"
+	};
+
+	function f1(obj2){
+		obj2.name = "小红";
+	}
+	console.log(obj.name);//小明
+
+	f1(obj);
+
+	console.log(obj.name);//小红
+
+
+
+
+	// 练习：
+	function Person(name, age,salary) {
+		this.name = name,
+		this.age age,
+		this.salary = salary
+	};
+
+	function f10(person) {
+		person.name = 'ls',
+		person = new Person("aa",22,1000);
+	};
+
+	var p = new Person("zs", 23, 1000);
+
+	console.log(p.name);	// zs
+
+	f1(p);	//此时p传递的是地址
+
+	console.log(p.name);
+
+
+
+</script>
+
+
+</body>
+</html>

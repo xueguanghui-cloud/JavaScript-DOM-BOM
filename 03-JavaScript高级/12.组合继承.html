@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 原型实现继承
+    // 借用构造函数继承
+    // 组合继承:原型继承+借用构造函数继承
+
+    function Person(name,age,sex,weight) {
+      this.name = name;
+      this.age =age;
+      this.sex = sex;
+      this.weight = weight;
+    };
+
+    Person.prototype.sayHi = function () {
+      console.log("你好，嘎嘎嘎！！！");
+    };
+
+    function Student(name,age,sex,weight,score) {
+      // 借用构造函数
+      Person.call(this,name,age,sex,weight);
+      this.score = score;
+    };
+    Student.prototype = new Person();
+    Student.prototype.eat = function () {
+      console.log('吃吃吃,就是吃');
+    }
+
+    var stu1 = new Student('小明',10,'男','100kg','100');
+    console.log(stu1.name,stu1.age,stu1.sex,stu1.weight,stu1.score);
+    stu1.sayHi();
+    stu1.eat();
+    var stu2 = new Student('小黑',23,'男','100kg','100');
+    console.log(stu2.name,stu2.age,stu2.sex,stu2.weight,stu2.score);
+    stu2.sayHi();
+    stu1.eat();
+    var stu3 = new Student('小绿',14,'男','100kg','100');
+    console.log(stu3.name,stu3.age,stu3.sex,stu1.weight,stu3.score);
+    stu3.sayHi();
+    stu1.eat();
+  </script>
+</body>
+</html>

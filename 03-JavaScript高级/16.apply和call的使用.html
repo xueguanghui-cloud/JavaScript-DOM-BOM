@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function f1(x,y) {
+      console.log("这个函数是window对象的一个方法:"+(x+y)+this);
+    }
+
+    window.f1(1,2);
+
+    var obj = {
+      age:10,
+      sex:"男"
+    }
+  
+
+    window.f1.apply(obj,[100,200]);
+    window.f1.call(obj,100,200);
+
+    // apply和call都可以改变this的指向
+  </script>
+</body>
+</html>

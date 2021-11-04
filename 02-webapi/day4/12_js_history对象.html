@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="跳过去" id="btn1">
+    <input type="button" value="前进" id="btn2">
+
+    <script src="./common.js"></script>
+
+    <script>
+        window.history.forward(); //前进
+        window.history.back(); //后退
+        window.history.go(); //参数为-1时候回退.为1是前进
+        document.getElementById("btn1").onclick = function() {
+            window.location.href = "./13_js_history对象2.html";
+        }
+
+        document.getElementById("btn2").onclick = function() {
+            window.history.forward();
+
+        }
+    </script>
+
+</body>
+
+</html>

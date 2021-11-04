@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 闭包产生三个随机数
+
+    function f1() {
+      var num = parseInt(Math.random()*10+1);
+      return function () {
+        console.log(num);
+      }
+    }
+
+    var ff = f1();
+    ff();
+    ff();
+    ff();
+    // 总结:如果想要缓存数据,就把这个数据放在外层的函数和里层函数的中间位置
+    // 闭包的作用:缓存数据,是优点也是缺点,数据没有及时释放
+      
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Student(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+
+        //原型的简单语法
+        Student.prototype = {
+            // 手动修改构造器的指向
+            constructor: Student,
+            width: '185',
+            weight: '55kg',
+            eat: function() {
+                console.log('吃的好饱啊');
+            },
+            study: function() {
+                console.log("学的好开心啊");
+            }
+        }
+
+        var stu = new Student('杨过', 32, '男');
+        stu.eat();
+        stu.study();
+        console.dir(Student);
+        console.dir(stu);
+    </script>
+
+</body>
+
+</html>

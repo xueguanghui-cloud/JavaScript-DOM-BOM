@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            vertical-align: top;
+        }
+        
+        .box {
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        .inner {
+            width: 520px;
+            height: 280px;
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .inner ul {
+            width: 1000%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .inner ul li {
+            float: left;
+        }
+        
+        #focus {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+        }
+        
+        #focus span {
+            cursor: pointer;
+            width: 20px;
+            height: 40px;
+            display: inline-block;
+            text-align: center;
+            color: #fff;
+            line-height: 40px;
+            background-color: rgba(0, 0, 0, .3);
+        }
+        
+        #focus span#left {
+            position: absolute;
+            left: 0;
+        }
+        
+        #focus span#right {
+            position: absolute;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <!-- 相框 -->
+        <div class="inner">
+            <ul>
+                <li class="li1">
+                    <a href="#"><img src="img/1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/3.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/4.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/5.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/1.jpg" alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 获取最外面的div
+        var box = document.getElementById("box");
+        // 获取相框
+        var inner = box.children[0];
+        // 获取相框的宽度
+        var imgWidth = inner.offsetWidth;
+        // 获取ul
+        var ulObj = inner.children[0];
+        // 获取li
+        var liObj = ulObj.children;
+        var current = 0;
+        var timeId = "";
+
+        timeId = setInterval(f1, 50);
+        // 鼠标移除继续切换
+        box.onmouseout = function() {
+            timeId = setInterval(f1, 50)
+        };
+
+        // 鼠标移入停止切换
+        box.onmouseover = function() {
+            clearInterval(timeId);
+        };
+
+
+        function f1() {
+            current -= 10;
+            if (current < -(liObj.length - 1) * imgWidth) {
+                current = 0;
+            } else {
+                ulObj.style.left = current + "px";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

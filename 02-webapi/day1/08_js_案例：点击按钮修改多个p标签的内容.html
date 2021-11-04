@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<input type="button" value="修改" id="btn">
+
+
+	<div id="dv1">
+		<p>啊啊啊啊,我太帅了</p>
+		<p>啊啊啊啊,我太帅了</p>
+		<p>啊啊啊啊,我太帅了</p>
+		<p>啊啊啊啊,我太帅了</p>
+		<p>啊啊啊啊,我太帅了</p>
+	</div>
+
+	<div id="dv2">
+		<p>嘎嘎</p>
+		<p>嘎嘎</p>
+		<p>嘎嘎</p>
+		<p>嘎嘎</p>
+		<p>嘎嘎</p>
+	</div>
+
+	<script type="text/javascript">
+		// 案例：点击按钮修改多个p标签的文字内容
+
+		var btn = document.getElementById("btn");
+
+		btn.onclick = function(){
+
+			// 根据标签名获取标签
+			var pList = document.getElementsByTagName("p");//返回的是一个伪数组
+
+			// var pList = document.getElementById("dv1").getElementsByTagName("p");
+
+			// 遍历数组为p修改内容;
+			for(var i = 0; i < pList.length; i++){
+				pList[i].innerText = "你放屁!!"
+			};
+
+		};
+
+		
+
+
+	</script>
+
+</body>
+</html>

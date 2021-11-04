@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="./common.js"></script>
+</head>
+<body>
+
+<input type="button" value="选择菜品" id="btn">
+
+<select name="">
+	<option value="1">清蒸龙虾</option>
+	<option value="2" id="sel1">爆炒鱿鱼</option>
+	<option value="3">水煮白菜</option>
+	<option value="4">麻婆豆腐</option>
+</select><br>
+
+<script type="text/javascript">
+	my$("btn").onclick = function(){
+		my$("sel1").selected = true;
+	}
+</script>
+
+
+<textarea name="" id="tt" cols="30" rows="10" readonly>
+	某人问智者：
+	大师：您觉得怎样做才是最快乐的？
+	回答说：不要和愚者辩论
+	这个人说：我不这么认为！
+	大师说：你说的对！！
+</textarea>
+<!-- disabled 是禁用的意思 -->
+<input type="button" value="注册" id="btn2">
+
+<script type="text/javascript">
+	my$("btn2").onclick = function () {
+		my$("tt").value = "嘎嘎"; // 推荐使用value，以表单的形式提交
+		// my$("tt").innerText = "哈哈";
+
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		// string ---类型-字符串-基本数据类型
+		// String ---字符串类型--引用类型
+			
+		// 字符串的特性：不可变性，字符串的值是不能改变的；
+		var str = "hello";
+		str[1] = "H";
+		// console.log(str);// hello
+
+		/*
+			内置对象：String()
+				属性：
+					str.length; 字符串的长度；
+					str.charAt(index) 返回值是指定索引位置的字符；
+					String.fromCharCode(num1,..,numN);返回对应的ASCII的值；
+					str.contact(string2,string2...)字符串拼接；
+					str.indexOf(要找的字符串，从某个位置开始的索引); 返回对应字符串的索引，找不到返回-1；
+					str.lastIndexOf(要找的字符串，从某个位置开始的索引);从后面往前找；
+					str.replace(oldstr,newstr);用来替换字符串；
+					str.slice(startIndex,endIndex);得到的是获取到的字符串；
+					str.split(要匹配的分隔符,留下的字符串);通过指定的分隔符，返回一组数组；
+					str.substr(开始的位置,字符串的长度);返回截取的字符串；
+					str.substring(开始的位置,结束的位置);返回截取的字符串，不包含结束位置的字符；
+					str.toLocaleLowerCase();转小写
+					str.toLowerCase(); 转小写
+					str.toLocaleUpperCase();转大写
+					str.toUpperCase();转大写
+					str.trim();去除字符串两端的空格
+
+
+		*/
+
+
+		// 案例：
+			// 1.截取字符串中的 杨哥
+			var str = "我最爱杨哥了，太帅了";
+			var index = str.indexOf("杨哥");//获取索引
+			str = str.(index,2);
+			console.log(str);
+
+			// 2.找到案例中所有的 o 出现的位置；
+			var str2 = "hello oll oadd weo olll";
+			var index = 0;//开始的位置
+			var key = "o";//要找的字符串
+			while((index = str2.indexOf(key,index)) != -1){
+				console.log(index);
+				index += key.length;
+			};
+
+			// 3.找到这个字符串中每个字符串出现了几次？
+			var str3 = "asdfjasdfasdfasadfasdfasdf";
+			// 把所有的字母转换成统一的大小写
+			str3 = str3.toLowerCase();
+			// 创建新的对象
+			var obj = {};
+			// 遍历字符串，获取每个字母
+			for(var i = 0; i < str3.length; i++){
+				var key = str3[i]; //每个字母
+				if( obj[key] ){
+					obj[key]++;
+				}else{
+					obj[key] = 1;
+				}
+			}
+
+			for(var key in obj){
+				console.log(key +"出现了"+ obj[key] +"次");
+			}
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

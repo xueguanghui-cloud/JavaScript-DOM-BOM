@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style type="text/css">
+        table {
+            width: 400px;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+        
+        thead tr {
+            background-color: lightblue;
+        }
+        
+        thead tr th {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        
+        thead tr th:first-child {
+            width: 50px;
+        }
+        
+        tbody tr td {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #aaa;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="selectAll"></th>
+                <th>菜名</th>
+                <th>饭店</th>
+            </tr>
+        </thead>
+        <tbody id="j_tb">
+            <tr>
+                <td><input type="checkbox" value="selectAll"></td>
+                <td>红烧肉</td>
+                <td>祝老师</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" value=""></td>
+                <td>红烧肉</td>
+                <td>祝老师</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" value=""></td>
+                <td>红烧肉</td>
+                <td>祝老师</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script src="./common.js"></script>
+    <script>
+        // 获取全选的这个复选框
+        var selectAll = my$("selectAll");
+        // 获取tbody中的所有的小复选框
+        var cks = my$("j_tb").getElementsByTagName("input");
+
+        // 点击这个复选框，获取它当前的状态，然后设置tbody中的所有复选框的状态
+        selectAll.onclick = function() {
+            for (var i = 0; i < cks.length; i++) {
+                cks[i].checked = this.checked;
+            };
+        };
+
+        // 获取tbody中所有的复选框，分别注册点击事件
+        for (var i = 0; i < cks.length; i++) {
+            cks[i].onclick = function() {
+                var flag = true; //默认全部选中
+                for (var j = 0; j < cks.length; j++) {
+                    if (!cks[j].checked) {
+                        // 没选中
+                        flag = false;
+                        break;
+                    }
+                };
+                //全选的这个复选框的状态就是flag这个变量的值
+                selectAll.checked = flag;
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

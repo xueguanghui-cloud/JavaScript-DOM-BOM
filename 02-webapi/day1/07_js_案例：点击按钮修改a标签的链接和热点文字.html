@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<input type="button" value="修改" id="btn">
+	<a href="http://www.baidu.com" id="a">百度</a>
+
+ 	<script type="text/javascript">
+
+	 	// 案例:点击按钮修改a标签的链接修改为淘宝
+	 	var btn = document.getElementById("btn")
+
+	 	btn.onclick = function() {
+	 		var a = document.getElementById("a");
+
+	 		// 修改a 标签的链接
+	 		a.href = "http://www.taobao.com";
+	 		// 修改a标签的热点文字
+	 		a.innerText = "淘宝";
+	 	};
+
+
+
+ 	</script>
+
+</body>
+</html>

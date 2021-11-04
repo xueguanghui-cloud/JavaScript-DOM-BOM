@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            vertical-align: top;
+        }
+        
+        .box {
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        .inner {
+            width: 520px;
+            height: 280px;
+            background-color: pink;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .inner ul {
+            width: 1000%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .inner ul li {
+            float: left;
+        }
+        
+        .square {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -34px;
+        }
+        
+        .square span {
+            width: 10px;
+            height: 10px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .square span.current {
+            background-color: #ff5000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <!-- 相框 -->
+        <div class="inner">
+            <ul>
+                <li>
+                    <a href="#"><img src="img/1.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/2.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/3.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/4.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/5.jpg" alt=""></a>
+                </li>
+            </ul>
+            <div class="square">
+                <span class="current"></span>
+                <span> </span>
+                <span> </span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 获取最外面的div
+        var box = document.getElementById("box");
+        // 获取相框
+        var inner = box.children[0];
+        // 获取相框的宽度
+        var imgWidth = inner.offsetWidth;
+        // 获取ul
+        var ulObj = inner.children[0];
+        // 获取所有的span标签
+        var spanOvbjs = inner.children[1].children;
+        // 循环遍历span
+        for (var i = 0; i < spanOvbjs.length; i++) {
+            // 循环的时候把索引值保存在每个span的自定义属性中
+            spanOvbjs[i].setAttribute("index", i);
+            // 注册鼠标进入事件
+            spanOvbjs[i].onmouseover = function() {
+                //清除所有span的背景颜色
+                for (var j = 0; j < spanOvbjs.length; j++) {
+                    // 移除span的类样式
+                    spanOvbjs[j].removeAttribute("class");
+                };
+
+                // 设置当前span的背景颜色
+                this.className = "current";
+
+                // 移动ur（每个图片宽*鼠标悬浮的索引值）
+                // 获取当前进入的span的索引
+                var index = this.getAttribute("index");
+
+                // 调用animate函数
+                animate(ulObj, -index * imgWidth);
+            };
+        };
+
+        // 设置任意一个元素，移动到指定的位置
+        function animate(element, target) {
+            // 清除定时器
+            clearInterval(element.timeId);
+            element.timeId = setInterval(function() {
+                // 获取div当前位置
+                var current = element.offsetLeft;
+                // 移动的步数
+                var step = 10;
+                step = current > target ? -step : step;
+                // 移动后的位置
+                current = current + step;
+                // 判断div是否到达目标位置
+                if (Math.abs(target - current) >= Math.abs(step)) {
+                    // 设置div的位置
+                    element.style.left = current + "px";
+                } else {
+                    // 清除定时器
+                    clearInterval(element.timeId);
+                    element.style.left = target + "px";
+                };
+            }, 10);
+        };
+    </script>
+</body>
+
+</html>

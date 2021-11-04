@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		// json格式的数据：
+			var json  = {
+				"name": "小明",
+				"age": "10",
+				"sex": "男"
+			};
+
+			// 遍历对象，是不能通过for循环遍历，无序
+
+			// 通过for in 循环遍历json格式的数据
+			for(var key in json){
+				//key 一个变量，里面存储着对象中所有属性的名字；
+				// console.log(key)	//json对象中的属性的名字
+				console.log(json[key]);
+			}
+
+
+
+
+
+	</script>
+
+</body>
+</html>
